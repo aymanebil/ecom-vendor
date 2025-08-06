@@ -2,7 +2,6 @@ package com.aymane.ecom.multivendor.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.crypto.SecretKey;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.aymane.ecom.multivendor.config.JWT_CONSTANT.*;
@@ -49,7 +47,6 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                 throw new BadCredentialsException("Invalid JWT token");
             }
         }
-
         filterChain.doFilter(request, response);
     }
 }
